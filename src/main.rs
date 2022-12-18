@@ -1,5 +1,14 @@
 fn main() {
- try_variables();
+    try_variables();
+    solo_heap_ownership();
+}
+
+fn solo_heap_ownership() {
+    let s1 = String::from("first");
+    println!("{}",s1);
+    let s2 = s1;
+    //println!("{}",s1); //compilation error --> single ownership.
+    println!("{}",s2);//cannot use s1 here, it has gone out of scope since only single ownership is allowed.
 
 }
 
